@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Measure } from "../types/tab";
 import TabMeasure from "./TabMeasure";
 import TabPreview from "./TabPreview";
+import Toolbar from "./Toolbar";
 
 const defaultTuning = ["g", "D", "G", "B", "D"];
 
@@ -67,6 +68,13 @@ export default function TabEditor() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-10">
+
+          <Toolbar
+      onAddMeasure={addMeasure}
+      onCopyTab={copyTab}
+      onPrint= {() => window.print()}
+      onClear={clearTab}
+    />
       <div className="mb-8">
         <input
           value={title}
