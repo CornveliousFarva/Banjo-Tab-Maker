@@ -1,14 +1,14 @@
-
+import type { Measure } from "../types/tab";
 
 interface TabMeasureProps {
   strings: (number | null)[][];
 }
 
-function TabMeasure({ strings }: TabMeasureProps) {
+function TabMeasure({ Measure }: TabMeasureProps) {
   return (
     <div className="inline-flex border-x-2 border-black py-2">
       <div className="flex flex-col gap-3">
-        {strings.map((stringNotes, stringIndex) => (
+                {measure.strings.map((stringNotes, stringIndex) => (
           <div
             key={stringIndex}
             className="flex min-h-6 min-w-48 items-center border-t border-black"
