@@ -1,31 +1,61 @@
 import type { Measure } from "../types/tab";
 
 interface TabMeasureProps {
-  strings: (number | null)[][];
+  measure: Measure;
+  measureIndex: number;
+  tuning: string[];
+  onCellChange: (
+    measureId: string,
+    stringIndex: number,
+    noteIndex: number,
+    value: string
+  ) => void;
 }
 
-function TabMeasure({ Measure }: TabMeasureProps) {
+export default function TabMeasure({
+  measure,
+  measureIndex,
+  tuning,
+  onCellChange,
+}: TabMeasureProps) {
   return (
-    <div className="inline-flex border-x-2 border-black py-2">
-      <div className="flex flex-col gap-3">
-                {measure.strings.map((stringNotes, stringIndex) => (
+    <div className="rounded-2xl border border-slate-300 bg-white p-5 shadow-sm">
+      <h2 className="mb-4 font-semibold text-slate-700 print:hidden">
+        Measure {measureIndex + 1}
+      </h2>
+
+      <div className="space-y-2 font-mono">
+        {measure.strings.map((string, stringIndex) => (
           <div
-            key={stringIndex}
-            className="flex min-h-6 min-w-48 items-center border-t border-black"
+            key={`${measure.id}-${stringIndex}`}
+            className="flex items-center gap-1 overflow-x-auto"
           >
-            {stringNotes.map((fret, noteIndex) => (
-              <div
+            <span className="w-6 font-bold text-slate-700">
+              {tuning[stringIndex]}
+            </span>
+
+            <span>|</span>
+
+            {string.map((note, noteIndex) => (
+              <input
                 key={noteIndex}
-                className="flex w-10 -translate-y-1/2 justify-center bg-white px-1 text-sm font-medium"
-              >
-                {fret ?? ""}
-              </div>
+                value={note}
+                onChange={(e) =>
+                  onCellChange(
+                    measure.id,
+                    stringIndex,
+                    noteIndex,
+                    e.target.value.slice(0, 2)
+                  )
+                }
+                className="h-8 w-8 rounded border border-slate-300 text-center text-sm outline-none focus:border-blue-500 print:border-none"
+              />
             ))}
+
+            <span>|</span>
           </div>
         ))}
       </div>
     </div>
   );
 }
-
-export default TabMeasure;
