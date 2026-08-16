@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Measure } from "../types/tab";
 import TabMeasure from "./TabMeasure";
+import TabPreview from "./TabPreview";
 
 const defaultTuning = ["g", "D", "G", "B", "D"];
 
@@ -123,6 +124,8 @@ export default function TabEditor() {
           />
         ))}
       </div>
+
+      <TabPreview measures={measures} tuning={tuning} />
     </section>
   );
 }
