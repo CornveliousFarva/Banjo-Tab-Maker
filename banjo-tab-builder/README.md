@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+Banjo Tab Maker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Banjo Tab Maker is a web-based tablature editor designed to make creating and editing banjo tabs simple and accessible.
 
-Currently, two official plugins are available:
+The project provides a visual interface for building banjo tablature without requiring users to manually format traditional ASCII tabs. It is being developed as both a practical music tool and a demonstration of modern front-end application development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Features
 
-## React Compiler
+Banjo Tab Maker is currently under active development.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Current functionality includes:
 
-## Expanding the ESLint configuration
+* Visual banjo tablature editor
+* Measure-based tab editing
+* Banjo tuning data
+* Tab preview
+* Toolbar-based editing controls
+* Responsive web interface
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Additional editing, saving, exporting, and musical notation features are planned as development continues.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* React
+* TypeScript
+* Vite
+* Tailwind CSS
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Project Structure
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application is organized around reusable React components and TypeScript data models.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+banjo-tab-builder/
+├── src/
+│   ├── components/
+│   │   ├── TabEditor.tsx
+│   │   ├── TabMeasure.tsx
+│   │   ├── TabPreview.tsx
+│   │   └── Toolbar.tsx
+│   ├── Data/
+│   │   └── tunings.ts
+│   ├── types/
+│   │   └── tab.ts
+│   ├── App.tsx
+│   └── main.tsx
+├── package.json
+└── README.md
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Getting Started
+
+Clone the repository:
+
+git clone https://github.com/CornveliousFarva/Banjo-Tab-Maker.git
+
+Navigate to the application directory:
+
+cd Banjo-Tab-Maker/banjo-tab-builder
+
+Install the dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Vite will provide the local development address in the terminal.
+
+Development Goals
+
+The long-term goal is to turn Banjo Tab Maker into an intuitive tool for writing, editing, saving, and sharing banjo tablature.
+
+Planned areas of development include:
+
+* Improved note and measure editing
+* Multiple banjo tunings
+* Save and load functionality
+* Tab export
+* Additional banjo techniques and notation
+* Improved keyboard controls
+* Print-friendly tabs
+* Playback capabilities
+
+Project Status
+
+In Development
+
+Banjo Tab Maker is an evolving project. Features and interface elements may change as the editor is expanded and refined.
+
+Author
+
+Created by Greg as a personal software development and portfolio project.
